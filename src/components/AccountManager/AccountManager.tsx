@@ -23,7 +23,8 @@ export class AccountManager {
      * @see this.activateNewUser
      */
 
-    register(email :string, password :string) : User {
+    register(email: string, password: string) :User {
+        // eslint-disable-next-line no-throw-literal
         if(!email) throw 'Must provide an email';
         if(!password) throw 'Must provide a password';
         let user = { email, password };
@@ -53,6 +54,7 @@ export class AccountManager {
      * */
 
     promoteToAdmin(existingAdmin: Admin, user: ConfirmedUser) {
+        // eslint-disable-next-line no-throw-literal
         if(!existingAdmin.adminSince) throw "Not an Admin";
         if(user.isActive !== true) throw "User must be active in order to be promoted";
         let newAdmin = user as Admin;
