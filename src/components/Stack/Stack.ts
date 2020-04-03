@@ -36,6 +36,7 @@ export class Stack<T> implements IStack<T> {
         if(!n) {
             return undefined;
         }
+        // @ts-ignore
         this.head = this.head.next;
         return n.data;
     }
