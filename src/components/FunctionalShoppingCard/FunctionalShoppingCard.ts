@@ -7,8 +7,8 @@ interface CartItem  {
 interface CartAPI {
     length: number;
     total: number;
-    add(item: CartItem): CartAPI;
-    add(name: string, price: number, qty: number): CartAPI;
+    add(name: string, price: number, qty?: number): CartAPI;
+    addItem(item: CartItem): CartAPI;
 }
 
 
@@ -29,10 +29,8 @@ export function cashier(): CartAPI {
             items.push(item);
             return this;
         },
-        add(name, price, qty = 1): CartAPI {
-            items.push({
-                name, price, qty
-            });
+        add(name, price, qty=1): CartAPI {
+            items.push({name, price, qty});
             return this;
         }
     };
